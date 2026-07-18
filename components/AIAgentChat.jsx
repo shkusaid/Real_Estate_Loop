@@ -2,7 +2,14 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import {
+  MessageCircle,
+  X,
+  Send,
+  Loader2,
+  Mic,
+  MicOff,
+} from "lucide-react";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import toast from "react-hot-toast";
@@ -15,6 +22,10 @@ export default function AIAgentChat() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef(null);
+  const [language, setLanguage] = useState("en-US");
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const messagesEndRef = useRef(null);
 
   // Auto-scroll to bottom when new messages arrive
@@ -22,9 +33,79 @@ export default function AIAgentChat() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const voicesRef = useRef([]);
+
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const loadVoices = () => {
+    voicesRef.current = window.speechSynthesis.getVoices();
+  };
+
+  loadVoices();
+
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+
+  return () => {
+    window.speechSynthesis.onvoiceschanged = null;
+  };
+}, []);
+
   useEffect(() => {
     scrollToBottom();
   }, [chatHistory, isLoading]);
+
+  useEffect(() => {
+  return () => {
+    if (typeof window !== "undefined") {
+      window.speechSynthesis.cancel();
+    }
+  };
+  }, []);
+
+  useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    console.log("Speech Recognition not supported");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+
+  recognition.lang = language;
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = () => {
+    setIsListening(true);
+  };
+
+  recognition.onend = () => {
+    setIsListening(false);
+  };
+
+  recognition.onerror = (event) => {
+  console.error("Speech Recognition Error:", event.error);
+  toast.error(event.error);
+  setIsListening(false);
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+
+    setMessage(transcript);
+  };
+
+  recognitionRef.current = recognition;
+
+return () => {
+  recognition.stop();
+};
+}, [language]);
 
   // Hide on auth pages
   if (
@@ -56,12 +137,12 @@ export default function AIAgentChat() {
       const response = await axios.post(
         "https://hook.eu1.make.com/dkhdswo943eo1zqded5h9pwttjl63l4u",
         {
+          message: userMessage,
+        },
+        {
           headers: {
             "Content-Type": "application/json",
           },
-          data: JSON.stringify({
-            message: userMessage,
-          }),
         }
       );
 
@@ -72,13 +153,15 @@ export default function AIAgentChat() {
         if (data && data.response) {
           // Add AI response to chat
           setChatHistory((prev) => [
-            ...prev,
-            {
-              type: "agent",
-              text: data.response,
-              timestamp: new Date(),
-            },
-          ]);
+                ...prev,
+                {
+                  type: "agent",
+                  text: data.response,
+                  timestamp: new Date(),
+                },
+              ]);
+
+              speakText(data.response);
         } else {
           // Fallback if no response key
           setChatHistory((prev) => [
@@ -133,6 +216,73 @@ export default function AIAgentChat() {
     return formattedText.replace(/\n/g, "<br />");
   };
 
+  const startListening = () => {
+  window.speechSynthesis.cancel();
+
+  if (!recognitionRef.current) {
+    toast.error("Speech Recognition is not supported.");
+    return;
+  }
+
+  try {
+  recognitionRef.current.start();
+  } catch (err) {
+    console.log(err);
+  }
+  };
+
+  const stopListening = () => {
+    recognitionRef.current?.stop();
+  };
+
+  // Stop Listening
+  const speakText = (text) => {
+  if (typeof window === "undefined") return;
+
+  // Stop any current speech
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = language;
+    utterance.rate = 0.95;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    utterance.onstart = () => {
+      setIsSpeaking(true);
+    };
+
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
+
+    utterance.onerror = () => {
+      setIsSpeaking(false);
+    };
+
+    // Try to select a matching voice
+
+    const voices = window.speechSynthesis.getVoices();
+
+let selectedVoice;
+
+if (language === "ur-PK") {
+  selectedVoice =
+    voices.find((v) => v.lang === "ur-PK") ||
+    voices.find((v) => v.lang.startsWith("ur"));
+} else {
+  selectedVoice =
+    voices.find((v) => v.lang === "en-US") ||
+    voices.find((v) => v.lang.startsWith("en"));
+}
+
+if (selectedVoice) {
+  utterance.voice = selectedVoice;
+}
+    window.speechSynthesis.speak(utterance);
+  };
+
   return (
     <>
       {/* Floating Chat Button */}
@@ -179,11 +329,18 @@ export default function AIAgentChat() {
                       Luxora AI
                     </h3>
                     <p className="text-brand-dark/80 text-xs dark:text-white/80 poppins_regular">
-                      Your AI Property Assistant
+                      {isSpeaking
+                        ? "🔊 Speaking..."
+                        : isListening
+                        ? "🎤 Listening..."
+                        : "Your AI Property Assistant"}
                     </p>
                   </div>
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                        window.speechSynthesis.cancel();
+                        setIsOpen(false);
+                      }}
                     className="text-brand-dark/80 dark:text-white/80 dark:hover:text-white hover:text-brand-dark transition-colors"
                   >
                     <X className="w-5 h-5" />
@@ -279,28 +436,59 @@ export default function AIAgentChat() {
               {/* Input Area */}
               <div className="p-2 bg-white dark:bg-brand-dark border-t border-gray-200 dark:border-brand-dark">
                 <div className="flex items-end gap-2">
-                  <Input
-                    placeholder="Type your message..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    disabled={isLoading}
-                    className="flex-1"
-                    classNames={{
-                      input:
-                        "text-sm bg-transparent outline-none poppins_regular",
-                      inputWrapper: "bg-transparent transition-colors",
-                    }}
-                  />
-                  <Button
-                    isIconOnly
-                    onClick={sendMessage}
-                    disabled={isLoading || !message.trim()}
-                    className="flex-shrink-0 bg-brand-primary disabled:cursor-default disabled:hover:bg-blue-300 disabled:bg-blue-300"
-                  >
-                    <Send className="w-4 h-4" />
-                  </Button>
-                </div>
+
+                    <select
+                      value={language}
+                      onChange={(e) => setLanguage(e.target.value)}
+                      className="border rounded-lg px-2 py-2 text-sm"
+                    >
+                      <option value="en-US">EN</option>
+                      <option value="ur-PK">اردو</option>
+                    </select>
+
+                    <Button
+                      isIconOnly
+                      onClick={isListening ? stopListening : startListening}
+                      className={`${
+                        isListening ? "bg-red-500" : "bg-green-600"
+                      } text-white`}
+                    >
+                      {isListening ? (
+                        <MicOff className="w-4 h-4" />
+                      ) : (
+                        <Mic className="w-4 h-4" />
+                      )}
+                    </Button>
+
+                    <Input
+                      placeholder={
+                        isListening
+                          ? "Listening..."
+                          : "Type or speak..."
+                      }
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      onKeyDown={handleKeyPress}
+                      disabled={isLoading}
+                      className="flex-1"
+                      classNames={{
+                        input:
+                          "text-sm bg-transparent outline-none poppins_regular",
+                        inputWrapper:
+                          "bg-transparent transition-colors",
+                      }}
+                    />
+
+                    <Button
+                      isIconOnly
+                      onClick={sendMessage}
+                      disabled={isLoading || !message.trim()}
+                      className="bg-brand-primary"
+                    >
+                      <Send className="w-4 h-4" />
+                    </Button>
+
+                  </div>
               </div>
             </div>
           </motion.div>
