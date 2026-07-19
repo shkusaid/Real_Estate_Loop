@@ -235,10 +235,22 @@ export default function AIAgentChat() {
     setMessage("");
 
     try {
+      const sessionId =
+        localStorage.getItem("rust-ai-session") || crypto.randomUUID();
+
+      localStorage.setItem("rust-ai-session", sessionId);
+
       const response = await axios.post(
         "https://actually-insane10.app.n8n.cloud/webhook/rust-ai-chat",
-        { message: userMessage },
-        { headers: { "Content-Type": "application/json" } },
+        {
+          message: userMessage,
+          sessionId,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
       );
 
       if (response.status === 200) {
@@ -361,7 +373,7 @@ export default function AIAgentChat() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-brand-dark text-lg dark:text-white poppins_medium">
-                      Luxora AI
+                      Rust AI
                     </h3>
                     <p className="text-brand-dark/80 text-xs dark:text-white/80 poppins_regular">
                       {isSpeaking
@@ -394,7 +406,7 @@ export default function AIAgentChat() {
                     </div>
                     <div className="bg-white dark:bg-gray-700 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
                       <p className="text-sm text-gray-800 dark:text-gray-200">
-                        👋 Hi! I'm Luxora AI, your property assistant. How can I
+                        👋 Hi! I'm Rust AI, your property assistant. How can I
                         help you find your dream home today?
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
