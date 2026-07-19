@@ -236,7 +236,7 @@ export default function AIAgentChat() {
 
     try {
       const response = await axios.post(
-        "https://hook.eu1.make.com/dkhdswo943eo1zqded5h9pwttjl63l4u",
+        "https://actually-insane10.app.n8n.cloud/webhook/rust-ai-chat",
         { message: userMessage },
         { headers: { "Content-Type": "application/json" } },
       );
