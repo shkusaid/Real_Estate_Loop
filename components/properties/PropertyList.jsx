@@ -110,9 +110,11 @@ export default function PropertyList({ data }) {
 
   return (
     <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-      {data.map((property) => (
-        <PropertyCard key={property?._id} property={property} />
-      ))}
+      {data.map((property) => {
+        console.log("PropertyList:", property);
+
+        return <PropertyCard key={property.id} property={property} />;
+      })}
     </div>
   );
 }
