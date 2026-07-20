@@ -1,4 +1,4 @@
-import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 
 export const teamMembers = [
   {
@@ -13,12 +13,16 @@ export const teamMembers = [
     ],
   },
   {
-  name: "THIS IS A TEST",
-  role: "TEST ROLE",
-  bio: "123456789",
-  image: "https://example.com/test.jpg",
-  socials: [],
-},
+    name: "Haris Kashif",
+    role: "Senior Agent",
+    bio: "Specializes in luxury properties and has closed over $50M in sales.",
+    image: "https://share.google/XOBqmPo2LPdYR1PsF",
+    socials: [
+      { icon: <FaGithub />, url: "#" },
+      { icon: <FaLinkedin />, url: "#" },
+      { icon: <FaFacebook />, url: "#" },
+    ],
+  },
   {
     name: "Ayesha Zaheer",
     role: "Property Manager",
