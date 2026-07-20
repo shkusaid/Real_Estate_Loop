@@ -39,7 +39,7 @@ export const dummyProperties = [
   area: "4273 sqft",
   description: "Close to major highways for easy commuting.",
   image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
-}
+},
   {
     id: 4,
     title: "Family-Friendly 4 Bedroom House",

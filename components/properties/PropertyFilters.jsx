@@ -20,7 +20,10 @@ export default function PropertyFilters() {
   const { search, priceRange, rating, bedrooms, bathrooms, hasKitchen } =
     useSelector((state) => state.propertyFilters);
 
-  const [priceBarRange, setPriceBarRange] = useState([]);
+  const [priceBarRange, setPriceBarRange] = useState({
+    minPrice: 0,
+    maxPrice: 5000000,
+  });
   const [isBedroomsOpen, setIsBedroomsOpen] = useState(true);
   const [isBathroomsOpen, setIsBathroomsOpen] = useState(true);
   const [isPriceRangeOpen, setIsPriceRangeOpen] = useState(true);
@@ -33,13 +36,13 @@ export default function PropertyFilters() {
   const debouncedSearchDispatch = useRef(
     debounce((value) => {
       dispatch(setSearch(value));
-    }, 500)
+    }, 500),
   ).current;
 
   const debouncedPriceDispatch = useRef(
     debounce((min, max) => {
       dispatch(setPriceRange([min, max]));
-    }, 500)
+    }, 500),
   ).current;
 
   // Sync local state with Redux when Redux state changes externally (e.g., clear filters)
@@ -48,15 +51,15 @@ export default function PropertyFilters() {
   }, [search]);
 
   useEffect(() => {
-  if (
-    priceRange &&
-    priceRange.length === 2 &&
-    priceRange[0] != null &&
-    priceRange[1] != null
-  ) {
-    setLocalPriceRange(priceRange);
-  }
-}, [priceRange]);
+    if (
+      priceRange &&
+      priceRange.length === 2 &&
+      priceRange[0] != null &&
+      priceRange[1] != null
+    ) {
+      setLocalPriceRange(priceRange);
+    }
+  }, [priceRange]);
 
   // Log active filters whenever they change
   useEffect(() => {
@@ -94,11 +97,7 @@ export default function PropertyFilters() {
 
   const handleClearFilters = () => {
     dispatch(resetFilters());
-    // Reset price range to actual API values instead of hardcoded defaults
-    if (
-      priceBarRange?.minPrice !== undefined &&
-      priceBarRange?.maxPrice !== undefined
-    ) {
+    if (priceBarRange?.minPrice != null && priceBarRange?.maxPrice != null) {
       dispatch(setPriceRange([priceBarRange.minPrice, priceBarRange.maxPrice]));
     }
   };
@@ -108,22 +107,29 @@ export default function PropertyFilters() {
   }, []);
 
   const handleGetPriceRange = () => {
-  const prices = dummyProperties.map((property) => property.price);
+    if (!dummyProperties || dummyProperties.length === 0) {
+      setPriceBarRange({ minPrice: 0, maxPrice: 5000000 });
+      return;
+    }
 
-  const minPrice = Math.min(...prices);
-  const maxPrice = Math.max(...prices);
+    const prices = dummyProperties
+      .map((property) => property.price)
+      .filter((p) => typeof p === "number" && !Number.isNaN(p));
 
-  const range = {
-    minPrice,
-    maxPrice,
+    if (prices.length === 0) {
+      setPriceBarRange({ minPrice: 0, maxPrice: 5000000 });
+      return;
+    }
+
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
+    const range = { minPrice, maxPrice };
+
+    setPriceBarRange(range);
+    setLocalPriceRange([minPrice, maxPrice]);
+    dispatch(setPriceRange([minPrice, maxPrice]));
   };
-
-  setPriceBarRange(range);
-
-  setLocalPriceRange([minPrice, maxPrice]);
-
-  dispatch(setPriceRange([minPrice, maxPrice]));
-};
 
   return (
     <Card className="w-full">
@@ -212,10 +218,22 @@ export default function PropertyFilters() {
                 <Slider
                   size="sm"
                   step={10000}
-                  minValue={priceBarRange?.minPrice}
-                  maxValue={priceBarRange?.maxPrice}
-                  value={localPriceRange}
-                  onChange={([min, max]) => handlePriceRangeChange(min, max)}
+                  minValue={priceBarRange?.minPrice ?? 0}
+                  maxValue={priceBarRange?.maxPrice ?? 5000000}
+                  value={
+                    Array.isArray(localPriceRange) &&
+                    localPriceRange[0] != null &&
+                    localPriceRange[1] != null
+                      ? localPriceRange
+                      : [
+                          priceBarRange?.minPrice ?? 0,
+                          priceBarRange?.maxPrice ?? 5000000,
+                        ]
+                  }
+                  onChange={([min, max]) => {
+                    if (min == null || max == null) return; // reject bad slider events instead of dispatching nulls
+                    handlePriceRangeChange(min, max);
+                  }}
                   className="max-w-md"
                 />
               </div>

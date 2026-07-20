@@ -54,78 +54,81 @@ console.log("Total Properties:", dummyProperties.length);
 ]);
 
   const handleGetProperties = () => {
-    setIsLoading(true);
+  setIsLoading(true);
 
-    let filtered = [...dummyProperties];
+  let filtered = Array.isArray(dummyProperties) ? [...dummyProperties] : [];
 
-    // Search
-    if (search) {
-      const q = search.toLowerCase();
+  // Search
+  if (search && search.trim()) {
+    const q = search.trim().toLowerCase();
+    filtered = filtered.filter((property) =>
+      property.title?.toLowerCase().includes(q) ||
+      property.city?.toLowerCase().includes(q) ||
+      property.location?.toLowerCase().includes(q) ||
+      property.type?.toLowerCase().includes(q)
+    );
+  }
 
-      filtered = filtered.filter((property) =>
-        property.title.toLowerCase().includes(q) ||
-        property.city.toLowerCase().includes(q) ||
-        property.location.toLowerCase().includes(q) ||
-        property.type.toLowerCase().includes(q)
-      );
-    }
-
-    // Bedrooms
-    if (bedrooms) {
-      filtered = filtered.filter((property) => {
-        if (bedrooms === "5+") return property.bedrooms >= 5;
-        return property.bedrooms === bedrooms;
-      });
-    }
-
-    // Bathrooms
-    if (bathrooms) {
-      filtered = filtered.filter((property) => {
-        if (bathrooms === "5+") return property.bathrooms >= 5;
-        return property.bathrooms === bathrooms;
-      });
-    }
-
-    // Price
-    if (priceRange.length === 2) {
-      filtered = filtered.filter(
-        (property) =>
-          property.price >= priceRange[0] &&
-          property.price <= priceRange[1]
-      );
-    }
-
-    // Sorting
-    switch (sort) {
-      case "price-low-to-high":
-        filtered.sort((a, b) => a.price - b.price);
-        break;
-
-      case "price-high-to-low":
-        filtered.sort((a, b) => b.price - a.price);
-        break;
-
-      case "a-to-z":
-        filtered.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-
-      case "z-to-a":
-        filtered.sort((a, b) => b.title.localeCompare(a.title));
-        break;
-
-      default:
-        break;
-    }
-
-    setProperties(filtered);
-
-    setPagination({
-      currentPage: 1,
-      totalPages: 1,
+  // Bedrooms — Number() guards against "3" vs 3 mismatches
+  if (bedrooms) {
+    filtered = filtered.filter((property) => {
+      if (bedrooms === "5+") return Number(property.bedrooms) >= 5;
+      return Number(property.bedrooms) === Number(bedrooms);
     });
+  }
 
-    setIsLoading(false);
-  };
+  // Bathrooms
+  if (bathrooms) {
+    filtered = filtered.filter((property) => {
+      if (bathrooms === "5+") return Number(property.bathrooms) >= 5;
+      return Number(property.bathrooms) === Number(bathrooms);
+    });
+  }
+
+  // Price — only filter when BOTH bounds are real, finite numbers.
+  // This is the key fix: [null, null] or [NaN, NaN] now gets skipped
+  // instead of silently filtering out every property.
+  if (
+    Array.isArray(priceRange) &&
+    typeof priceRange[0] === "number" &&
+    typeof priceRange[1] === "number" &&
+    Number.isFinite(priceRange[0]) &&
+    Number.isFinite(priceRange[1])
+  ) {
+    filtered = filtered.filter(
+      (property) =>
+        property.price >= priceRange[0] && property.price <= priceRange[1]
+    );
+  }
+
+  // hasKitchen — this was dispatched from the filter UI but never actually
+  // applied here before. Only filters if your dummyData has this field.
+  if (hasKitchen) {
+    filtered = filtered.filter((property) => property.hasKitchen === true);
+  }
+
+  // Sorting
+  switch (sort) {
+    case "price-low-to-high":
+      filtered.sort((a, b) => a.price - b.price);
+      break;
+    case "price-high-to-low":
+      filtered.sort((a, b) => b.price - a.price);
+      break;
+    case "a-to-z":
+      filtered.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    case "z-to-a":
+      filtered.sort((a, b) => b.title.localeCompare(a.title));
+      break;
+    default:
+      break;
+  }
+
+  setProperties(filtered);
+  setPagination({ currentPage: 1, totalPages: 1 });
+  setIsLoading(false);
+};
 
   // Skeleton loader component - matches PropertyList card structure exactly
   const PropertySkeleton = () => (
