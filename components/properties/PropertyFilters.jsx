@@ -17,7 +17,6 @@ import { HiMinus, HiPlus, HiSearch, HiX, HiStar } from "react-icons/hi";
 
 export default function PropertyFilters() {
   const dispatch = useDispatch();
-  const { get } = ApiFunction();
   const { search, priceRange, rating, bedrooms, bathrooms, hasKitchen } =
     useSelector((state) => state.propertyFilters);
 
@@ -49,8 +48,15 @@ export default function PropertyFilters() {
   }, [search]);
 
   useEffect(() => {
+  if (
+    priceRange &&
+    priceRange.length === 2 &&
+    priceRange[0] != null &&
+    priceRange[1] != null
+  ) {
     setLocalPriceRange(priceRange);
-  }, [priceRange]);
+  }
+}, [priceRange]);
 
   // Log active filters whenever they change
   useEffect(() => {
@@ -102,20 +108,22 @@ export default function PropertyFilters() {
   }, []);
 
   const handleGetPriceRange = () => {
-    
-    const prices = dummyProperties.map((property) => property.price);
+  const prices = dummyProperties.map((property) => property.price);
 
-    const minPrice = Math.min(...prices);
-    const maxPrice = Math.max(...prices);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
 
-    setPriceBarRange({
-      minPrice,
-      maxPrice,
-    });
-    console.log(priceBarRange);
-
-    dispatch(setPriceRange([minPrice, maxPrice]));
+  const range = {
+    minPrice,
+    maxPrice,
   };
+
+  setPriceBarRange(range);
+
+  setLocalPriceRange([minPrice, maxPrice]);
+
+  dispatch(setPriceRange([minPrice, maxPrice]));
+};
 
   return (
     <Card className="w-full">
@@ -206,10 +214,7 @@ export default function PropertyFilters() {
                   step={10000}
                   minValue={priceBarRange?.minPrice}
                   maxValue={priceBarRange?.maxPrice}
-                  value={[
-                    localPriceRange[0] || 0,
-                    localPriceRange[1] || 1000000,
-                  ]}
+                  value={localPriceRange}
                   onChange={([min, max]) => handlePriceRangeChange(min, max)}
                   className="max-w-md"
                 />
