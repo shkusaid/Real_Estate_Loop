@@ -74,7 +74,7 @@ export default function AllListings() {
     if (!propertyToDelete) return;
 
     try {
-      const response = await put(`${deleteListing}/${propertyToDelete.slug}`);
+      const response = await put(`${deleteListing}/${propertyToDelete.id}`);
       if (response?.success) {
         toast.success(response.message || "Listing deleted successfully");
         fetchListings(); // Refresh the list
@@ -297,13 +297,13 @@ export default function AllListings() {
                     {/* Action Buttons */}
                     <div className="flex gap-2">
                       <Link
-                        href={`/properties/${property?.slug}`}
+                        href={`/properties/${property.id}`}
                         className="flex-1 text-center bg-brand-primary hover:bg-brand-primary/90 text-white px-4 py-2 rounded-lg transition-colors roboto_medium text-sm"
                       >
                         View Details
                       </Link>
                       <Link
-                        href={`/settings/add-listing?slug=${property?.slug}`}
+                        href={`/settings/add-listing?slug=${property.id}`}
                         className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center p-0"
                       >
                         <FaEdit />

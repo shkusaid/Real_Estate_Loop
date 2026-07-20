@@ -178,7 +178,7 @@ export default function LatestProperties() {
                       <button
                         className="text-brand-primary hover:text-brand-primary/80 roboto_medium flex items-center"
                         onClick={() =>
-                          router.push(`/properties/${property?.slug}`)
+                          router.push(`/properties/${property.id}`)
                         }
                       >
                         View Details
