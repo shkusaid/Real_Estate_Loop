@@ -14,6 +14,7 @@ export const dummyProperties = [
     location: "Madina Town, Faisalabad",
     area: "3435 sqft",
     description: "Ideal for small families or working professionals.",
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const dummyProperties = [
     location: "Model Town, Multan",
     area: "1870 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=1200&q=80"
   },
   {
   id: 3,
@@ -39,7 +41,7 @@ export const dummyProperties = [
   area: "4273 sqft",
   description: "Close to major highways for easy commuting.",
   image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
-},
+  },
   {
     id: 4,
     title: "Family-Friendly 4 Bedroom House",
@@ -51,6 +53,7 @@ export const dummyProperties = [
     location: "Clifton, Karachi",
     area: "2572 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 5,
@@ -63,6 +66,7 @@ export const dummyProperties = [
     location: "Satellite Town, Rawalpindi",
     area: "2488 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 6,
@@ -75,6 +79,7 @@ export const dummyProperties = [
     location: "Bahria Town, Islamabad",
     area: "2644 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 7,
@@ -87,6 +92,7 @@ export const dummyProperties = [
     location: "Clifton, Karachi",
     area: "1745 sqft",
     description: "Offers a rooftop terrace with stunning city views.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 8,
@@ -99,6 +105,7 @@ export const dummyProperties = [
     location: "Madina Town, Faisalabad",
     area: "1828 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 9,
@@ -111,6 +118,7 @@ export const dummyProperties = [
     location: "Clifton, Karachi",
     area: "575 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 10,
@@ -123,6 +131,7 @@ export const dummyProperties = [
     location: "Cantt, Multan",
     area: "1520 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 11,
@@ -135,6 +144,7 @@ export const dummyProperties = [
     location: "F-8, Islamabad",
     area: "628 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 12,
@@ -147,6 +157,7 @@ export const dummyProperties = [
     location: "Nazimabad, Karachi",
     area: "540 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 13,
@@ -159,6 +170,7 @@ export const dummyProperties = [
     location: "Gulberg, Lahore",
     area: "3115 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 14,
@@ -171,6 +183,7 @@ export const dummyProperties = [
     location: "Johar Town, Lahore",
     area: "1087 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 15,
@@ -183,6 +196,7 @@ export const dummyProperties = [
     location: "F-10, Islamabad",
     area: "4456 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 16,
@@ -195,6 +209,7 @@ export const dummyProperties = [
     location: "Madina Town, Faisalabad",
     area: "1874 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 17,
@@ -207,6 +222,7 @@ export const dummyProperties = [
     location: "F-7, Islamabad",
     area: "600 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 18,
@@ -219,6 +235,7 @@ export const dummyProperties = [
     location: "Bosan Road, Multan",
     area: "1028 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 19,
@@ -231,6 +248,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "2209 sqft",
     description: "Ideal for small families or working professionals.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 20,
@@ -243,6 +261,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "2681 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1597047084897-51e81819a499?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 21,
@@ -255,6 +274,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "1514 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 22,
@@ -267,6 +287,7 @@ export const dummyProperties = [
     location: "DHA Phase 2, Islamabad",
     area: "2070 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 23,
@@ -279,6 +300,7 @@ export const dummyProperties = [
     location: "DHA Phase 8, Karachi",
     area: "2571 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 24,
@@ -291,6 +313,7 @@ export const dummyProperties = [
     location: "Bosan Road, Multan",
     area: "1410 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 25,
@@ -303,6 +326,7 @@ export const dummyProperties = [
     location: "Johar Town, Lahore",
     area: "996 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 26,
@@ -315,6 +339,7 @@ export const dummyProperties = [
     location: "DHA Phase 6, Lahore",
     area: "2959 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 27,
@@ -327,6 +352,7 @@ export const dummyProperties = [
     location: "PECHS, Karachi",
     area: "3645 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 28,
@@ -339,6 +365,7 @@ export const dummyProperties = [
     location: "Cantt, Multan",
     area: "2143 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 29,
@@ -351,6 +378,7 @@ export const dummyProperties = [
     location: "Model Town, Multan",
     area: "4582 sqft",
     description: "Walking distance to markets, mosques, and public transport.",
+    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 30,
@@ -363,6 +391,7 @@ export const dummyProperties = [
     location: "Bahria Town, Lahore",
     area: "856 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 31,
@@ -375,6 +404,7 @@ export const dummyProperties = [
     location: "Bahria Town, Islamabad",
     area: "1212 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 32,
@@ -387,6 +417,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "3708 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1597047084897-51e81819a499?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 33,
@@ -399,6 +430,7 @@ export const dummyProperties = [
     location: "F-8, Islamabad",
     area: "1214 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 34,
@@ -411,6 +443,7 @@ export const dummyProperties = [
     location: "PECHS, Karachi",
     area: "1588 sqft",
     description: "Pet-friendly community with nearby parks and walking trails.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 35,
@@ -423,6 +456,7 @@ export const dummyProperties = [
     location: "Johar Town, Lahore",
     area: "4768 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 36,
@@ -435,6 +469,7 @@ export const dummyProperties = [
     location: "North Nazimabad, Karachi",
     area: "2744 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 37,
@@ -447,6 +482,7 @@ export const dummyProperties = [
     location: "Jaranwala Road, Faisalabad",
     area: "2887 sqft",
     description: "Pet-friendly community with nearby parks and walking trails.",
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 38,
@@ -459,6 +495,7 @@ export const dummyProperties = [
     location: "Chaklala Scheme 3, Rawalpindi",
     area: "1489 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 39,
@@ -471,6 +508,7 @@ export const dummyProperties = [
     location: "Bosan Road, Multan",
     area: "4294 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 40,
@@ -483,6 +521,7 @@ export const dummyProperties = [
     location: "Clifton, Karachi",
     area: "982 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 41,
@@ -495,6 +534,7 @@ export const dummyProperties = [
     location: "G-11, Islamabad",
     area: "1480 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 42,
@@ -507,6 +547,7 @@ export const dummyProperties = [
     location: "Bahria Town, Islamabad",
     area: "925 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 43,
@@ -519,6 +560,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "1540 sqft",
     description: "Ideal for small families or working professionals.",
+    image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 44,
@@ -531,6 +573,7 @@ export const dummyProperties = [
     location: "F-7, Islamabad",
     area: "541 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 45,
@@ -543,6 +586,7 @@ export const dummyProperties = [
     location: "E-11, Islamabad",
     area: "2369 sqft",
     description: "Walking distance to markets, mosques, and public transport.",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 46,
@@ -555,6 +599,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "998 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 47,
@@ -567,6 +612,7 @@ export const dummyProperties = [
     location: "Askari 10, Lahore",
     area: "5073 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 48,
@@ -579,6 +625,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "1805 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 49,
@@ -591,6 +638,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "1233 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 50,
@@ -603,6 +651,7 @@ export const dummyProperties = [
     location: "Jaranwala Road, Faisalabad",
     area: "1970 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 51,
@@ -615,6 +664,7 @@ export const dummyProperties = [
     location: "DHA Phase 2, Islamabad",
     area: "4094 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 52,
@@ -627,6 +677,7 @@ export const dummyProperties = [
     location: "DHA Phase 5, Lahore",
     area: "1628 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 53,
@@ -639,6 +690,7 @@ export const dummyProperties = [
     location: "Bahria Town, Rawalpindi",
     area: "2370 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 54,
@@ -651,6 +703,7 @@ export const dummyProperties = [
     location: "E-11, Islamabad",
     area: "4204 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 55,
@@ -663,6 +716,7 @@ export const dummyProperties = [
     location: "Bahria Town, Islamabad",
     area: "1580 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 56,
@@ -675,6 +729,7 @@ export const dummyProperties = [
     location: "Model Town, Multan",
     area: "3278 sqft",
     description: "Features a swimming pool and dedicated home theater room.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 57,
@@ -687,6 +742,7 @@ export const dummyProperties = [
     location: "DHA Phase 1, Rawalpindi",
     area: "3431 sqft",
     description: "Walking distance to markets, mosques, and public transport.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 58,
@@ -699,6 +755,7 @@ export const dummyProperties = [
     location: "Gulshan-e-Iqbal, Karachi",
     area: "518 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 59,
@@ -711,6 +768,7 @@ export const dummyProperties = [
     location: "Gulberg, Lahore",
     area: "1814 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 60,
@@ -723,6 +781,7 @@ export const dummyProperties = [
     location: "DHA Phase 2, Islamabad",
     area: "3214 sqft",
     description: "Offers a rooftop terrace with stunning city views.",
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 61,
@@ -735,6 +794,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "1640 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 62,
@@ -747,6 +807,7 @@ export const dummyProperties = [
     location: "Bahria Town, Rawalpindi",
     area: "2308 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 63,
@@ -759,6 +820,7 @@ export const dummyProperties = [
     location: "Askari 10, Lahore",
     area: "2243 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 64,
@@ -771,6 +833,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "4097 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 65,
@@ -783,6 +846,7 @@ export const dummyProperties = [
     location: "Clifton, Karachi",
     area: "642 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 66,
@@ -795,6 +859,7 @@ export const dummyProperties = [
     location: "Bahria Town, Karachi",
     area: "1973 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 67,
@@ -807,6 +872,7 @@ export const dummyProperties = [
     location: "Model Town, Lahore",
     area: "1310 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 68,
@@ -819,6 +885,7 @@ export const dummyProperties = [
     location: "Wapda Town, Lahore",
     area: "3183 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 69,
@@ -831,6 +898,7 @@ export const dummyProperties = [
     location: "G-11, Islamabad",
     area: "573 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 70,
@@ -843,6 +911,7 @@ export const dummyProperties = [
     location: "Madina Town, Faisalabad",
     area: "4769 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 71,
@@ -855,6 +924,7 @@ export const dummyProperties = [
     location: "Canal Road, Faisalabad",
     area: "2719 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1597047084897-51e81819a499?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 72,
@@ -867,6 +937,7 @@ export const dummyProperties = [
     location: "Model Town, Multan",
     area: "1605 sqft",
     description: "Fully furnished and move-in ready.",
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 73,
@@ -879,6 +950,7 @@ export const dummyProperties = [
     location: "E-11, Islamabad",
     area: "2714 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 74,
@@ -891,6 +963,7 @@ export const dummyProperties = [
     location: "Chaklala Scheme 3, Rawalpindi",
     area: "3978 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 75,
@@ -903,6 +976,7 @@ export const dummyProperties = [
     location: "G-11, Islamabad",
     area: "2967 sqft",
     description: "Features an open-plan living area with plenty of natural light.",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 76,
@@ -915,6 +989,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "4151 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 77,
@@ -927,6 +1002,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "2552 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 78,
@@ -939,6 +1015,7 @@ export const dummyProperties = [
     location: "Nazimabad, Karachi",
     area: "2576 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 79,
@@ -951,6 +1028,7 @@ export const dummyProperties = [
     location: "F-10, Islamabad",
     area: "5810 sqft",
     description: "Pet-friendly community with nearby parks and walking trails.",
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 80,
@@ -963,6 +1041,7 @@ export const dummyProperties = [
     location: "Model Town, Lahore",
     area: "2024 sqft",
     description: "Walking distance to markets, mosques, and public transport.",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 81,
@@ -975,6 +1054,7 @@ export const dummyProperties = [
     location: "North Nazimabad, Karachi",
     area: "902 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 82,
@@ -987,6 +1067,7 @@ export const dummyProperties = [
     location: "Johar Town, Lahore",
     area: "901 sqft",
     description: "Pet-friendly community with nearby parks and walking trails.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 83,
@@ -999,6 +1080,7 @@ export const dummyProperties = [
     location: "Canal Road, Faisalabad",
     area: "722 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 84,
@@ -1011,6 +1093,7 @@ export const dummyProperties = [
     location: "Bosan Road, Multan",
     area: "4829 sqft",
     description: "Gated community with 24/7 security and CCTV surveillance.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 85,
@@ -1023,6 +1106,7 @@ export const dummyProperties = [
     location: "Gulgasht Colony, Multan",
     area: "2764 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 86,
@@ -1035,6 +1119,7 @@ export const dummyProperties = [
     location: "North Nazimabad, Karachi",
     area: "690 sqft",
     description: "Pet-friendly community with nearby parks and walking trails.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 87,
@@ -1047,6 +1132,7 @@ export const dummyProperties = [
     location: "Bahria Town, Karachi",
     area: "661 sqft",
     description: "Offers a rooftop terrace with stunning city views.",
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 88,
@@ -1059,6 +1145,7 @@ export const dummyProperties = [
     location: "DHA Phase 6, Lahore",
     area: "483 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 89,
@@ -1071,6 +1158,7 @@ export const dummyProperties = [
     location: "Askari 10, Lahore",
     area: "1059 sqft",
     description: "Includes modern kitchen fittings and premium finishes throughout.",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 90,
@@ -1083,6 +1171,7 @@ export const dummyProperties = [
     location: "Bahria Town, Karachi",
     area: "5283 sqft",
     description: "Close to major highways for easy commuting.",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 91,
@@ -1095,6 +1184,7 @@ export const dummyProperties = [
     location: "Jaranwala Road, Faisalabad",
     area: "4119 sqft",
     description: "Ideal for small families or working professionals.",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 92,
@@ -1107,6 +1197,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "3281 sqft",
     description: "Ideal for small families or working professionals.",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 93,
@@ -1119,6 +1210,7 @@ export const dummyProperties = [
     location: "Susan Road, Faisalabad",
     area: "3461 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 94,
@@ -1131,6 +1223,7 @@ export const dummyProperties = [
     location: "Madina Town, Faisalabad",
     area: "1606 sqft",
     description: "Energy-efficient design with solar panel installation.",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 95,
@@ -1143,6 +1236,7 @@ export const dummyProperties = [
     location: "Nazimabad, Karachi",
     area: "4102 sqft",
     description: "Comes with a private garden and covered parking for two cars.",
+    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 96,
@@ -1155,6 +1249,7 @@ export const dummyProperties = [
     location: "Canal Road, Faisalabad",
     area: "5378 sqft",
     description: "Includes servant quarters and a separate guest wing.",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 97,
@@ -1167,6 +1262,7 @@ export const dummyProperties = [
     location: "DHA Phase 8, Karachi",
     area: "3426 sqft",
     description: "Offers a rooftop terrace with stunning city views.",
+    image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 98,
@@ -1179,6 +1275,7 @@ export const dummyProperties = [
     location: "Bahria Town, Karachi",
     area: "2715 sqft",
     description: "Walking distance to markets, mosques, and public transport.",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 99,
@@ -1191,6 +1288,7 @@ export const dummyProperties = [
     location: "Jaranwala Road, Faisalabad",
     area: "2554 sqft",
     description: "Recently renovated with new flooring and fresh paint.",
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 100,
@@ -1203,5 +1301,6 @@ export const dummyProperties = [
     location: "Cantt, Multan",
     area: "1714 sqft",
     description: "Located in a quiet, family-friendly neighborhood close to schools and parks.",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"
   },
 ];
