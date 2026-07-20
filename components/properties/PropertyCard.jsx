@@ -184,7 +184,7 @@ export default function PropertyCard({ property, showSoldInfo = false }) {
 
         {/* CTA Button */}
         <Button
-          onClick={() => router.push(`/properties/${property?.slug}`)}
+          onClick={() => router.push(`/properties/${property.id}`)}
           className="w-full h-10 bg-brand-primary text-white roboto_medium text-base group/btn transition-all duration-500 shadow-lg"
           size="md"
         >
