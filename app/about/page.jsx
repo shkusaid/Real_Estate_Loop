@@ -221,7 +221,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <motion.div
-                key={index}
+                key={member.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -231,9 +231,9 @@ const AboutPage = () => {
                 <div className="relative overflow-hidden h-80">
                   <Image
                     src={member.image}
-                    alt={member.name}
-                    width={300}
-                    height={400}
+                    alt={`${member.name} - ${member.role}`}
+                    width={400}
+                    height={500}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -258,7 +258,9 @@ const AboutPage = () => {
                     {member.role}
                   </p>
                   <div className="flex space-x-4">
-                    {member.socials.map((social, i) => (
+                    {member.socials
+                    .filter((social) => social.url)
+                    .map((social, i) => (
                       <a
                         key={i}
                         href={social.url}
