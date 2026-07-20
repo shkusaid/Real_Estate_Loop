@@ -97,14 +97,14 @@ const ContactPage = () => {
       icon: <FaPhoneAlt className="text-2xl text-brand-primary" />,
       title: "Phone Number",
       description: "+92 318 7019892",
-      href: "tel:+923187019892",
+      href: "tel:+923261019892",
       type: "link",
     },
     {
       icon: <FaEnvelope className="text-2xl text-brand-primary" />,
       title: "Email Address",
-      description: "shykhtalha33@gmail.com",
-      href: "mailto:shykhtalha33@gmail.com",
+      description: "shkusaid910@gmail.com",
+      href: "mailto:shkusaid910@gmail.com",
       type: "link",
     },
   ];
