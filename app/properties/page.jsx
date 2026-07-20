@@ -1,5 +1,5 @@
 "use client";
-
+import { dummyProperties } from "@/data/dummyData";
 import { getListing } from "@/components/api/apiEndpoints";
 import ApiFunction from "@/components/api/apiFunction";
 import { handleError } from "@/components/api/errorHandler";
@@ -36,20 +36,18 @@ export default function PropertiesPage() {
     handleGetProperties();
   }, [activeFilters, lastId]);
 
-  const handleGetProperties = () => {
-    setIsLoading(true);
-    get(`${getListing}?page=${lastId}&${new URLSearchParams(activeFilters)}`)
-      .then((result) => {
-        if (result?.success) {
-          setProperties(result?.data?.listings);
-          setPagination(result?.data?.pagination);
-        }
-      })
-      .catch((err) => {
-        handleError(err);
-      })
-      .finally(() => setIsLoading(false));
-  };
+const handleGetProperties = () => {
+  setIsLoading(true);
+
+  setProperties(dummyProperties);
+
+  setPagination({
+    currentPage: 1,
+    totalPages: 1,
+  });
+
+  setIsLoading(false);
+};
 
   // Skeleton loader component - matches PropertyList card structure exactly
   const PropertySkeleton = () => (
