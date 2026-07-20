@@ -91,8 +91,10 @@ export default function PropertyFilters() {
   };
 
   const handlePriceRangeChange = (min, max) => {
-    setLocalPriceRange([min, max]); // Update local state immediately for responsive slider
-    debouncedPriceDispatch(min, max); // Dispatch to Redux after 500ms delay
+    const safeMin = Number.isFinite(min) ? min : priceBarRange.minPrice;
+    const safeMax = Number.isFinite(max) ? max : priceBarRange.maxPrice;
+    setLocalPriceRange([safeMin, safeMax]);
+    debouncedPriceDispatch(safeMin, safeMax);
   };
 
   const handleClearFilters = () => {
@@ -196,7 +198,11 @@ export default function PropertyFilters() {
                   <Input
                     type="number"
                     disabled
-                    value={localPriceRange[0]}
+                    value={
+                      Number.isFinite(localPriceRange[0])
+                        ? localPriceRange[0]
+                        : priceBarRange.minPrice
+                    }
                     placeholder="Min"
                     size="sm"
                   />
@@ -208,7 +214,11 @@ export default function PropertyFilters() {
                   <Input
                     type="number"
                     disabled
-                    value={localPriceRange[1]}
+                    value={
+                      Number.isFinite(localPriceRange[1])
+                        ? localPriceRange[1]
+                        : priceBarRange.maxPrice
+                    }
                     placeholder="Max"
                     size="sm"
                   />
@@ -222,17 +232,22 @@ export default function PropertyFilters() {
                   maxValue={priceBarRange?.maxPrice ?? 5000000}
                   value={
                     Array.isArray(localPriceRange) &&
-                    localPriceRange[0] != null &&
-                    localPriceRange[1] != null
+                    Number.isFinite(localPriceRange[0]) &&
+                    Number.isFinite(localPriceRange[1])
                       ? localPriceRange
                       : [
                           priceBarRange?.minPrice ?? 0,
                           priceBarRange?.maxPrice ?? 5000000,
                         ]
                   }
-                  onChange={([min, max]) => {
-                    if (min == null || max == null) return; // reject bad slider events instead of dispatching nulls
-                    handlePriceRangeChange(min, max);
+                  onChange={(value) => {
+                    if (Array.isArray(value)) {
+                      handlePriceRangeChange(value[0], value[1]);
+                    } else {
+                      // Slider only returned one number — treat it as the max handle
+                      // moving, keep the current min as-is.
+                      handlePriceRangeChange(localPriceRange[0], value);
+                    }
                   }}
                   className="max-w-md"
                 />
