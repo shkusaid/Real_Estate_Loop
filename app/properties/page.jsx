@@ -36,18 +36,20 @@ export default function PropertiesPage() {
     handleGetProperties();
   }, [activeFilters, lastId]);
 
-const handleGetProperties = () => {
-  setIsLoading(true);
+    const handleGetProperties = () => {
+      setIsLoading(true);
 
-  setProperties(dummyProperties);
+      console.log(dummyProperties);
 
-  setPagination({
-    currentPage: 1,
-    totalPages: 1,
-  });
+      setProperties(dummyProperties);
 
-  setIsLoading(false);
-};
+      setPagination({
+        currentPage: 1,
+        totalPages: 1,
+      });
+
+      setIsLoading(false);
+    };
 
   // Skeleton loader component - matches PropertyList card structure exactly
   const PropertySkeleton = () => (
