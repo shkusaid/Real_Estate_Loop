@@ -1,4 +1,5 @@
 "use client";
+import { dummyProperties } from "@/data/dummyProperties";
 import { propertyDetail } from "@/components/api/apiEndpoints";
 import ApiFunction from "@/components/api/apiFunction";
 import debounce from "debounce";
@@ -37,22 +38,16 @@ export default function PropertyDetailPage({ params }) {
   const [isLoading, setIsLoading] = useState(true);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
 
-  const fetchProperty = debounce(async () => {
-    try {
-      setIsLoading(true);
-      await get(`${propertyDetail}/${id}`)
-        .then((response) => {
-          setPropertyData(response?.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching property:", error);
-        })
-        .finally(() => setIsLoading(false));
-    } catch (error) {
-      console.error("Error fetching property:", error);
-      setIsLoading(false);
-    }
-  });
+  const fetchProperty = () => {
+  setIsLoading(true);
+
+  const property = dummyProperties.find(
+    (item) => item.id === Number(id)
+  );
+
+  setPropertyData(property || null);
+  setIsLoading(false);
+};
 
   useEffect(() => {
     fetchProperty();
