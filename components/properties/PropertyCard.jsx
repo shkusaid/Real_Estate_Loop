@@ -25,7 +25,7 @@ export default function PropertyCard({ property, showSoldInfo = false }) {
       {/* Image Section */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src={property.images?.[0] || "/placeholder-property.jpg"}
+          src={property.image || "/placeholder-property.jpg"}
           alt={property.title || "Property"}
           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
           removeWrapper
@@ -52,9 +52,7 @@ export default function PropertyCard({ property, showSoldInfo = false }) {
             <IoLocationOutline className="text-brand-primary text-sm shrink-0" />
           </div>
           <span className="truncate capitalize roboto_regular">
-            {property.location?.address
-              ? `${property.location.address}, ${property.location.city}`
-              : property.location?.city || "Location not specified"}
+            {property.location || property.city}
           </span>
         </div>
 
@@ -75,7 +73,7 @@ export default function PropertyCard({ property, showSoldInfo = false }) {
           <div className="flex flex-col items-center">
             <FaRulerCombined className="text-brand-warning text-lg mb-1" />
             <span className="text-xs text-foreground-500 poppins_medium">
-              {property?.size?.value || 0} {property?.size?.unit || "sqft"}
+              {property.area}
             </span>
           </div>
           <div className="flex flex-col items-center">
