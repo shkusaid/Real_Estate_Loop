@@ -1,5 +1,5 @@
 "use client";
-
+import { dummyProperties } from "@/data/dummyData";
 import { useState, useEffect, useCallback, useRef } from "react";
 import debounce from "debounce";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,9 +14,6 @@ import {
 } from "@/redux/slices/propertyFilterSlice";
 import { Button, Card, CardBody, Input, Slider } from "@/components/ui";
 import { HiMinus, HiPlus, HiSearch, HiX, HiStar } from "react-icons/hi";
-import { getPriceRange } from "../api/apiEndpoints";
-import { handleError } from "../api/errorHandler";
-import ApiFunction from "../api/apiFunction";
 
 export default function PropertyFilters() {
   const dispatch = useDispatch();
@@ -105,21 +102,19 @@ export default function PropertyFilters() {
   }, []);
 
   const handleGetPriceRange = () => {
-    get(`${getPriceRange}`)
-      .then((result) => {
-        if (result?.success) {
-          setPriceBarRange(result?.data?.priceRange);
-          dispatch(
-            setPriceRange([
-              result?.data?.priceRange?.minPrice,
-              result?.data?.priceRange?.maxPrice,
-            ])
-          );
-        }
-      })
-      .catch((err) => {
-        handleError(err);
-      });
+    
+    const prices = dummyProperties.map((property) => property.price);
+
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
+    setPriceBarRange({
+      minPrice,
+      maxPrice,
+    });
+    console.log(priceBarRange);
+
+    dispatch(setPriceRange([minPrice, maxPrice]));
   };
 
   return (

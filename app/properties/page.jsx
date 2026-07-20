@@ -1,7 +1,5 @@
 "use client";
 import { dummyProperties } from "@/data/dummyData";
-import { getListing } from "@/components/api/apiEndpoints";
-import ApiFunction from "@/components/api/apiFunction";
 import { handleError } from "@/components/api/errorHandler";
 import PropertyFilters from "@/components/properties/PropertyFilters";
 import PropertyList from "@/components/properties/PropertyList";
@@ -27,29 +25,107 @@ export default function PropertiesPage() {
   const [properties, setProperties] = useState([]);
   const [pagination, setPagination] = useState(null);
   const [lastId, setLastId] = useState(1);
-  const { get } = ApiFunction();
-  const { sort, activeFilters } = useSelector((state) => state.propertyFilters);
-
+  const {
+    sort,
+    search,
+    priceRange,
+    bedrooms,
+    bathrooms,
+  } = useSelector((state) => state.propertyFilters);
   // In a real app, this would be an API call with the filters
   useEffect(() => {
+  handleGetProperties();
+  console.log("Redux Values");
+console.log({
+  search,
+  bedrooms,
+  bathrooms,
+  priceRange,
+  sort,
+});
+
+console.log("Total Properties:", dummyProperties.length);
+}, [
+  search,
+  bedrooms,
+  bathrooms,
+  priceRange,
+  sort,
+]);
+
+  const handleGetProperties = () => {
     setIsLoading(true);
-    handleGetProperties();
-  }, [activeFilters, lastId]);
 
-    const handleGetProperties = () => {
-      setIsLoading(true);
+    let filtered = [...dummyProperties];
 
-      console.log(dummyProperties);
+    // Search
+    if (search) {
+      const q = search.toLowerCase();
 
-      setProperties(dummyProperties);
+      filtered = filtered.filter((property) =>
+        property.title.toLowerCase().includes(q) ||
+        property.city.toLowerCase().includes(q) ||
+        property.location.toLowerCase().includes(q) ||
+        property.type.toLowerCase().includes(q)
+      );
+    }
 
-      setPagination({
-        currentPage: 1,
-        totalPages: 1,
+    // Bedrooms
+    if (bedrooms) {
+      filtered = filtered.filter((property) => {
+        if (bedrooms === "5+") return property.bedrooms >= 5;
+        return property.bedrooms === bedrooms;
       });
+    }
 
-      setIsLoading(false);
-    };
+    // Bathrooms
+    if (bathrooms) {
+      filtered = filtered.filter((property) => {
+        if (bathrooms === "5+") return property.bathrooms >= 5;
+        return property.bathrooms === bathrooms;
+      });
+    }
+
+    // Price
+    if (priceRange.length === 2) {
+      filtered = filtered.filter(
+        (property) =>
+          property.price >= priceRange[0] &&
+          property.price <= priceRange[1]
+      );
+    }
+
+    // Sorting
+    switch (sort) {
+      case "price-low-to-high":
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+
+      case "price-high-to-low":
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+
+      case "a-to-z":
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+
+      case "z-to-a":
+        filtered.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+
+      default:
+        break;
+    }
+
+    setProperties(filtered);
+
+    setPagination({
+      currentPage: 1,
+      totalPages: 1,
+    });
+
+    setIsLoading(false);
+  };
 
   // Skeleton loader component - matches PropertyList card structure exactly
   const PropertySkeleton = () => (
