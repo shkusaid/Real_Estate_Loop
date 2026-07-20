@@ -230,8 +230,7 @@ const AboutPage = () => {
               >
                 <div className="relative overflow-hidden h-80">
                   <Image
-                    // src={member.image}
-                    src={house8}
+                    src={member.image}
                     alt={member.name}
                     width={300}
                     height={400}
