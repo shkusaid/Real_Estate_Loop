@@ -19,7 +19,7 @@ import moment from "moment";
 
 export default function PropertyCard({ property, showSoldInfo = false }) {
   const router = useRouter();
-
+  console.log(property);
   return (
     <Card className="overflow-hidden border-0 bg-white dark:bg-brand-deepdark shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:shadow-brand-primary/20 transition-all duration-500 group">
       {/* Image Section */}
