@@ -31,6 +31,7 @@ export default function PropertiesPage() {
     priceRange,
     bedrooms,
     bathrooms,
+    hasKitchen,
   } = useSelector((state) => state.propertyFilters);
   // In a real app, this would be an API call with the filters
   useEffect(() => {
